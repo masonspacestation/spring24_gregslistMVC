@@ -1,21 +1,47 @@
 import { Car } from './models/Car.js'
+import { House } from "./models/House.js"
 import { EventEmitter } from './utils/EventEmitter.js'
+import { generateId } from "./utils/GenerateId.js"
 import { createObservableProxy } from './utils/ObservableProxy.js'
 
 class ObservableAppState extends EventEmitter {
 
-  // NOTE working with this stuff you can just get rid of it
-  // /**@type {import('./models/Example.js').Example[]} */
-  // examples = []
-
-
-  // NOTE when we updated our constructor to take in a 'data' object, our default cars needed to be updated too
-  // cars = [
-  //   new Car('dodge', 'neon', 1996, 'orange', 200, 150000, true, 'https://www.carscoops.com/wp-content/uploads/2019/04/30bd62fe-2005-dodge-neon-srt4-bat-auction-60.jpg'),
-  //   new Car('mazda', 'miata', 1995, 'white', 20000, 200000, false, 'https://images.topgear.com.ph/topgear/images/2019/02/03/mazda-miata-mt1-1549188870.jpg'),
-  //   new Car('tesla', 'cybertruck', 2024, 'silver', 81895, 100, true, 'https://www.digitaltrends.com/wp-content/uploads/2019/12/tesla-cybertruck-1220.jpg?resize=1200%2C630&p=1'),
-  //   new Car('toyota', 'tacoma', 2018, 'cement', 35000, 72000, true, 'https://www.purosautos.com/wp-content/uploads/2018/09/2018-Toyota-Tacoma-.jpg')
-  // ]
+  houses = [
+    // new House()
+    new House({
+      id: generateId(),
+      year: 1954,
+      name: 'Riviera House',
+      bedrooms: 2,
+      bathrooms: 2,
+      sqft: 1000,
+      price: 100,
+      description: 'Nice House',
+      imgUrl: 'https://photos.zillowstatic.com/fp/cc36b358a2f5f21b3a19e13757db57fd-p_e.jpg',
+    }),
+    new House({
+      id: generateId(),
+      year: 1985,
+      name: 'Boise Mansion',
+      bedrooms: 6,
+      bathrooms: 6,
+      sqft: 4000,
+      price: 300,
+      description: 'Legit Mansion',
+      imgUrl: 'https://www.weknowboise.com/uploads/shared/images/neighborhoods/boise-north-end-real-estate-and-homes-for-sale.jpg',
+    }),
+    new House({
+      id: generateId(),
+      year: 2020,
+      name: 'Yurt',
+      bedrooms: 1,
+      bathrooms: 1,
+      sqft: 400,
+      price: 200,
+      description: "You'll be yurtin for certain.",
+      imgUrl: 'https://hipcamp-res.cloudinary.com/f_auto,c_limit,w_1120,q_60/v1666318389/campground-photos/hbpapt8atrf3xbn0os30.jpg',
+    }),
+  ]
 
   cars = [
     new Car({
@@ -39,6 +65,7 @@ class ObservableAppState extends EventEmitter {
       imgUrl: 'https://images.topgear.com.ph/topgear/images/2019/02/03/mazda-miata-mt1-1549188870.jpg'
     }),
   ]
+
 
 
 

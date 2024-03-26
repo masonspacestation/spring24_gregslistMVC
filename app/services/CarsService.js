@@ -16,6 +16,11 @@ class CarsService {
     this.saveCars()
   }
 
+  saveCars() {
+    let dataString = JSON.stringify(AppState.cars) // when items are stringified, their class is stripped
+    localStorage.setItem('cars', dataString)
+  }
+
   deleteCar(carId) {
     let indexToDelete = AppState.cars.findIndex(car => car.id == carId) // find the position of the car we want to delete
     console.log('deleting', indexToDelete);
@@ -23,10 +28,6 @@ class CarsService {
     this.saveCars() // re-saves our local storage, it will no longer include that car
   }
 
-  saveCars() {
-    let dataString = JSON.stringify(AppState.cars) // when items are stringified, their class is stripped
-    localStorage.setItem('cars', dataString)
-  }
 
   loadCars() {
     let dataString = localStorage.getItem('cars') // pulls a string of data out of the local storage
