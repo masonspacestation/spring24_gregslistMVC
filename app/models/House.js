@@ -35,7 +35,7 @@ export class House {
           <p class="card-text fw-bold"><i class="mdi mdi-tape-measure"></i>${this.sqft} ft<sup>2</sup></p>
           </div>
           <div class="col-4 text-start">
-            <button class="btn btn-primary rounded rounded-2">$${this.price}</button>
+            <button class="btn btn-primary rounded rounded-2" onclick="HousesController.removeHouse(${this.id})">$${this.price}</button>
           </div>
         </div>
       </div>

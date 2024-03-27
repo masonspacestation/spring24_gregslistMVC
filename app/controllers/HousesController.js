@@ -35,8 +35,11 @@ export class HousesController {
     houseListElem.innerHTML = housesHTML
   }
 
-
-
+  removeHouses(houseId) {
+    console.log('removing',);
+    houseServices.removeHouses(houseId)
+    this.drawhouses()
+  }
 
 
 

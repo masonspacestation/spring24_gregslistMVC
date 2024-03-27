@@ -13,7 +13,7 @@ class HousesService {
 
   saveHouses() {
     let dataString = JSON.stringify(AppState.houses)
-    localStorage.setItem('6 houses ', dataString)
+    localStorage.setItem('houses', dataString)
   }
 
   loadHouses() {
@@ -28,6 +28,11 @@ class HousesService {
 
   }
 
+  removeHouses(houseData) {
+
+    let indexToDelete = AppState.houses.find(house => house.id == houseData.id)
+    console.log(indexToDelete);
+  }
 
 
 
