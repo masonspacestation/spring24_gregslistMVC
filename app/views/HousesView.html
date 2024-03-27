@@ -3,11 +3,66 @@
     <p>Houses Page</p>
     <h1> How about a house?</h1>
   </div>
+  <form onsubmit="app.HousesController.createHouse()" class="row border shadow my-3 rounded py-2">
+    <h4>Sell your house</h4>
+
+    <div class="col-3 mb-2">
+      <label for="listing-title">Listing Title</label>
+      <input type="text" id="listing-title" name="name" class="form-control" required minlength="1" maxlength="24">
+    </div>
+
+    <div class="col-1 mb-2">
+      <label for="house-bedrooms">Bedrooms</label>
+      <input type="number" id="house-bedrooms" name="bedrooms" class="form-control" required min="1" max="10">
+    </div>
+
+    <div class="col-1 mb-2">
+      <label for="house-bathrooms">Bathrooms</label>
+      <input type="number" id="house-bathrooms" name="bathrooms" class="form-control" required min="1" max="10">
+    </div>
+
+    <!-- <div class="col-1 mb-2">
+      <label for="sq-footage">Sq. Feet</label>
+      <input type="number" id="sq-footage" name="sqft" class="form-control" required min="100" max="10000">
+    </div>
+
+    <div class="col-2 mb-2">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" class="form-control" required min="1" max="2000000">
+    </div>
+
+    <div class="col-4"></div>
+    <div class="col-6 mb-2">
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" class="form-control" required min="1" max="200">
+    </div> -->
+
+    <div class="col-2 mb-2">
+      <label for="image-url">Image URL</label>
+      <input type="text" id="image-url" name="imgUrl" class="form-control" required min="1" max="100">
+    </div>
+
+    <div class="col-4"></div>
+    <button type="submit" class="col-4 btn btn-primary m-2">Submit</button>
+  </form>
 </div>
-<section class="container-fluid p-2">
+<section class="container p-2">
   <div class="row mt-3" id="houses-list">
 
-
+    <!-- <div class="row justify-items-around align-items-middle">
+      <div class="col-4 text-start p-3">
+        <p class="card-text fw-bold"><i class="mdi mdi-bed-king-outline"></i>${this.bedrooms}</p>
+      </div>
+      <div class="col-4 text-start p-3">
+        <p class="card-text fw-bold"><i class="mdi mdi-shower"></i>${this.bathrooms}</p>
+      </div>
+      <div class="col-4 text-start p-3">
+        <p class="card-text fw-bold"><i class="mdi mdi-tape-measure"></i>${this.sqft}<sup>2</sup></p>
+      </div>
+      <div class="col-4 text-start">
+        <button class="btn btn-primary rounded rounded-2">$${this.price}</button>
+      </div>
+    </div> -->
     <!-- <div class="col-4">
       <div class="card">
         <img src="https://photos.zillowstatic.com/fp/cc36b358a2f5f21b3a19e13757db57fd-p_e.jpg" alt="rancher house"

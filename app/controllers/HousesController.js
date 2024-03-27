@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { carsService } from "../services/CarsService.js";
 import { houseServices } from "../services/HousesService.js";
 import { getFormData } from "../utils/FormHandler.js";
 
@@ -6,30 +7,34 @@ import { getFormData } from "../utils/FormHandler.js";
 
 export class HousesController {
   constructor() {
-    console.log('houses controller loaded');
-    // this.addHouse('this old house')
-    this.drawhouse()
+    console.log('1a: houses controller loaded');
+    houseServices.loadHouses()
+    this.drawhouses()
+    console.log("6 and we're back");
   }
 
-  drawhouse() {
-    console.log('🏡 drawing houses');
+  createHouse() {
+    event.preventDefault()
+    console.log('🏡 2 house added');
+
+    let houseData = getFormData(event.target)
+    houseServices.createHouse(houseData)
+    event.target.reset()
+    this.drawhouses()
+  }
+
+  drawhouses() {
+    console.log('4 🏡 drawing houses');
     const house = AppState.houses
     let housesHTML = ''
-    house.forEach(house => { housesHTML += house.houseCard })
-    console.log(housesHTML);
+    house.forEach(house => housesHTML += house.houseCard)
+    console.log('5 ', housesHTML);
 
     const houseListElem = document.getElementById('houses-list')
 
-    houseListElem.innerHTML += housesHTML
+    houseListElem.innerHTML = housesHTML
   }
 
-
-  addHouse(record) {
-    console.log('🏡 house added', record);
-    // this will add the data to the AppState.houses array, then it will draw the array to the page with a second function here
-    houseServices.createHouse(record)
-    console.log('🏡🏡🏡 this new house', record);
-  }
 
 
 
